@@ -16,4 +16,8 @@ public class Viewer {
     public void congratulate() {
         System.out.println("Congratulations! You guessed my number!");
     }
+
+    public void sayIncorrectGuess() {
+        System.out.println("That's not a number! Game over.");
+    }
 }

@@ -31,7 +31,7 @@ public class GuessingGame {
             viewer.congratulate();
         }
         catch (InputMismatchException e){
-            System.out.println("That's not a number! Try again");
+            viewer.sayIncorrectGuess();
         }
 
     }
