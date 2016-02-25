@@ -26,8 +26,7 @@ public class Viewer {
             System.out.print(", " + guessList.get(i));
         }
     }
-
-
+    
     public void sayIncorrectGuess() {
         System.out.println("That's not a number! Try again");
     }

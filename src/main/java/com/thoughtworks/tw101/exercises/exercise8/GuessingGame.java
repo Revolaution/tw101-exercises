@@ -23,6 +23,7 @@ public class GuessingGame {
         viewer.pickANumber();
         this.play();
     }
+
     public void play(){
         try{
             while (guess != randomNumber){
