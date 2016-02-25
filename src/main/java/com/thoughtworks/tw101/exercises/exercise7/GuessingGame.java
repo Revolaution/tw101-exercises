@@ -5,27 +5,30 @@ import java.util.Scanner;
 
 public class GuessingGame {
     private Scanner scanner;
+    private Viewer viewer;
     private int randomNumber = 1 + (int) (Math.random() * 99);
     private int guess;
 
 
     public GuessingGame(){
+
         this.scanner = new Scanner(System.in);
+        this.viewer = new Viewer();
     }
 
     public void start(){
-        this.pickANumber();
+        viewer.pickANumber();
         try{
             while (guess != randomNumber){
                 guess = scanner.nextInt();
                 if (guess > randomNumber){
-                    this.guessLower();
+                    viewer.guessLower();
                 }
                 else if (guess < randomNumber){
-                    this.guessHigher();
+                    viewer.guessHigher();
                 }
             }
-            this.congratulate();
+            viewer.congratulate();
         }
         catch (InputMismatchException e){
             System.out.println("That's not a number! Try again");
@@ -33,19 +36,4 @@ public class GuessingGame {
 
     }
 
-    private void pickANumber(){
-        System.out.println("Pick a number between 1 and 100! What do you think it is?");
-    }
-
-    private void guessHigher() {
-        System.out.println("Guess higher");
-    }
-
-    private void guessLower() {
-        System.out.println("Guess lower");
-    }
-
-    private void congratulate() {
-        System.out.println("Congratulations! You guessed my number!");
-    }
 }
