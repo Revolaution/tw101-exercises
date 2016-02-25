@@ -3,7 +3,7 @@ package com.thoughtworks.tw101.introductory_programming_exercises;
 public class DiamondExercises {
     public static void main(String[] args) {
         drawAnIsoscelesTriangle(3);
-        drawADiamond(8);
+        drawADiamond(3);
         drawADiamondWithYourName(3);
     }
 
@@ -13,7 +13,15 @@ public class DiamondExercises {
 //             ***
 //            *****
     private static void drawAnIsoscelesTriangle(int n) {
-
+        for (int i = 1; i < (n + 4); i += 2){
+            for (int k = 0; k < (4 - (i / 2)); k++){
+                System.out.print(" ");
+            }
+            for (int j = 0; j < i; j++){
+                System.out.print("*");
+            }
+            System.out.println("");
+        }
     }
 
 //    Diamond
@@ -24,7 +32,36 @@ public class DiamondExercises {
 //             ***
 //              *
     private static void drawADiamond(int n) {
+        drawUpperDiamond(n);
+        drawLowerDiamond(n);
+    }
 
+    public static void drawUpperDiamond(int numOfRows){
+        for (int i = 1; i < (numOfRows + 3); i += 2){
+            drawOutContent(i);
+        }
+    }
+
+    public static void drawOutContent(int num){
+        for (int k = 0; k < (4 - (num / 2)); k++){
+            System.out.print(" ");
+        }
+        for (int j = 0; j < num; j++){
+            System.out.print("*");
+        }
+        System.out.println("");
+    }
+
+    public static void drawLowerDiamond(int numOfRows){
+        for (int i = (numOfRows + 1); i > 0; i -= 2){
+            for (int k = 0; k < (5 - (i / 2)); k++){
+                System.out.print(" ");
+            }
+            for (int j = 1; j < i; j++){
+                System.out.print("*");
+            }
+            System.out.println("");
+        }
     }
 
 //    Diamond with Name
@@ -36,6 +73,18 @@ public class DiamondExercises {
 //            ***
 //             *
     private static void drawADiamondWithYourName(int n) {
+        for (int i = 1; i < (n + 1); i += 2){
+            drawOutContent(i);
+        }
 
+        printMyName(n);
+        drawLowerDiamond(n);
+    }
+
+    public static void printMyName(int spacing){
+        for (int i = 0; i < ( 4 - (spacing/2)); i++){
+            System.out.print(" ");
+        }
+        System.out.println("Ryan");
     }
 }
