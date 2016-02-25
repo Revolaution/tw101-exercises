@@ -1,11 +1,12 @@
 package com.thoughtworks.tw101.exercises.exercise7;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GuessingGame {
     private Scanner scanner;
     private int randomNumber = 1 + (int) (Math.random() * 99);
-    private int guess = 0;
+    private int guess;
 
 
     public GuessingGame(){
@@ -14,16 +15,22 @@ public class GuessingGame {
 
     public void start(){
         this.pickANumber();
-        while (guess != randomNumber){
-            guess = scanner.nextInt();
-            if (guess > randomNumber){
-                this.guessLower();
+        try{
+            while (guess != randomNumber){
+                guess = scanner.nextInt();
+                if (guess > randomNumber){
+                    this.guessLower();
+                }
+                else if (guess < randomNumber){
+                    this.guessHigher();
+                }
             }
-            else if (guess < randomNumber){
-                this.guessHigher();
-            }
+            this.congratulate();
         }
-        this.congratulate();
+        catch (InputMismatchException e){
+            System.out.println("That's not a number! Try again");
+        }
+
     }
 
     private void pickANumber(){
